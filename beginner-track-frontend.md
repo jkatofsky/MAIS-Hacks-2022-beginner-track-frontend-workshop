@@ -9,12 +9,10 @@ Feel free to ask questions at any time!
 1. Set up a basic webpage using HTML
 2. Create a form on that page to capture user input
 3. Make our page look pretty using a CSS library
-4. Send the user input as an input for the API made in the beginner backend workshop (running locally on my laptop for demonstration purposes)
+4. Send the user input as an input for house price prediction API made in the beginner backend workshop (running locally on my laptop for demonstration purposes)
 5. Briefly touch on hosting
 
 The idea is to demonstrate the flow of making a basic frontend for an ML app, so that you will have some newfound tools to apply to your project!
-
-<!-- TODO: update all code samples based on the actual file -->
 
 ## 1) Setup
 
@@ -130,8 +128,6 @@ With this in mind, here is a new version of the `<script>` to call the API with 
 ...
 <script>
     ...
-    // using an API for this workshop...
-    // but you can use whatever makes the most sense for your use case!
     const getPricePrediction = async (bedrooms) => {
         const response = await fetch(
             `http://127.0.0.1:5000/predict`, {
@@ -154,14 +150,6 @@ With this in mind, here is a new version of the `<script>` to call the API with 
     })
 </script>
 ```
-
-<!-- TODO: make better -->
-
-Some possible adaptations are that...
-
-- API formats vary widely, both in the expected request format and the expected response format.
-- You don't have to have made the API yourself - there's lots of cool stuff out there.
-- Instead of using an API, your project may have something AI-ey happening directly within the frontend, such as using Tensorflow.js or querying a premade set of model outputs.
 
 ## 5) Hosting the frontend
 
