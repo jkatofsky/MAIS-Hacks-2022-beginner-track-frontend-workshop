@@ -150,7 +150,7 @@ With this in mind, here is a new version of the `<script>` to call the API with 
     predictButton.addEventListener('click', async () => {
         const bedrooms = Number(bedroomInput.value);
         const pricePrediction = await getPricePrediction(bedrooms);
-        priceSpan.innerHTML = pricePrediction;
+        priceSpan.innerHTML = `$${pricePrediction.toFixed(2)}`;
     })
 </script>
 ```
