@@ -10,7 +10,7 @@
 
     <body>
         <h1>MAIS Hacks 2022 Frontend Workshop</h1>
-        <h2>House Price Predictor</h2>
+        <h2>Rent Price Predictor</h2>
 
         <label>Enter the number of bedrooms in the house:</label>
         <input type="number" min="1" id="bedrooms">
@@ -43,7 +43,7 @@
             predictButton.addEventListener('click', async () => {
                 const bedrooms = Number(bedroomInput.value);
                 const pricePrediction = await getPricePrediction(bedrooms);
-                priceSpan.innerHTML = pricePrediction;
+                priceSpan.innerHTML = `$${pricePrediction.toFixed(2)}`;
             })
         </script>
     </body>
