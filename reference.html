@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MAIS Hacks 2022!</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    </head>
+
+    <body>
+        <h1>MAIS Hacks 2022 Frontend Workshop</h1>
+        <h2>House Price Predictor</h2>
+
+        <label>Enter the number of bedrooms in the house:</label>
+        <input type="number" min="1" id="bedrooms">
+        <button id="predict">Predict rent</button>
+        <p>
+            <span><b>Rent:</b></span>
+            <span id="price"></span>
+        </p>
+
+        <script>
+            const predictButton = document.getElementById('predict');
+            const bedroomInput = document.getElementById('bedrooms');
+            const priceSpan = document.getElementById('price');
+
+            const getPricePrediction = async (bedrooms) => {
+                const response = await fetch(
+                    `http://127.0.0.1:5000/predict`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            bedrooms
+                        })
+                    });
+                const responseJson = await response.json();
+                return responseJson.prediction;
+            }
+
+            predictButton.addEventListener('click', async () => {
+                const bedrooms = Number(bedroomInput.value);
+                const pricePrediction = await getPricePrediction(bedrooms);
+                priceSpan.innerHTML = pricePrediction;
+            })
+        </script>
+    </body>
+
+</html>
